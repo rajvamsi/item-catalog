@@ -24,11 +24,11 @@ This is a Udacity project, A web application which uses FLASK framework that acc
 ## Run
 
 * Launch Vagrant VM using 
-    $ vagrant up
-    $ vagrant ssh
-    $ cd /vagrant
-    $ ll
-    $ cd your_project_directory
+    >$ vagrant up
+    >$ vagrant ssh
+    >$ cd /vagrant
+    >$ ll
+    >$ cd your_project_directory
 
 * Run main_file within VM
     $ python main_file.py
