@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+	<form action="{{ url_for('editProcessorList', company_id=company.id,b_id=processor.id)}}" method="POST">
+	<div class="matter">
+		processor_name<br><input type="text" name="processor_name" value="{{processor.processor_name}}"><br>
+		about<br><input type="text" name="about" rows="5" cols="100" value="{{processor.about}}"><br>
+		Speciality<br><input type="text" name="Speciality" value="{{processor.Speciality}}"><br>
+		cores<br><input type="text" name="cores" value="{{processor.cores}}"><br>
+		threads<br><input type="text" name="threads" value="{{processor.threads}}"><br>
+		cache<br><input type="text" name="cache" value="{{processor.cache}}"><br><br>
+		
+		<button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Edit  <span class="glyphicon glyphicon-edit"></span></button>
+
+		<button class="w3-btn w3-white w3-border w3-border-red w3-round-large"><a href="{{url_for('showProcessors',company_id=company.id)}}">Cancel</a></button>
+
+
+	</div>
+		
+</form>
+</body>
+</html>

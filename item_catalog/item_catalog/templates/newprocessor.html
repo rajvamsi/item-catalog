@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+	<form action="{{ url_for('newProcessorList',processor_id=processor_id)}}" method="POST">
+		processor_name-: <br><input type="text" name="processor_name"  required> <br>
+		about-: <br><input type="text" name="about" required><br>
+		Speciality-: <br><input type="text" name="Speciality" required><br>
+		cores-: <br><input type="text" name="cores" required><br>
+		threads-: <br><input type="text" name="threads" required><br>
+		cache-: <br><input type="text" name="cache" required><br><br>
+		<button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Add <span class="glyphicon glyphicon-plus-sign"></span></button>
+		<button class="w3-btn w3-white w3-border w3-border-red w3-round-large"><a href="{{ url_for('showProcessors',company_id=processor_id)}}">Cancel</a></button>
+
+
+	
+</form>
+</body>
+</html>

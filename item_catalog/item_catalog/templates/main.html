@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Company Processor Info</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<style>
+	table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+</head>
+<body>
+	<form action="#" method="POST">
+	<div class="">
+		{% if 'username' in session %}
+	<ul>
+
+			<button class="w3-button w3-black w3-round-xxlarge"><font color="white"><a href="{{ url_for('newProcessorList',processor_id=company.id) }}" class="glyphicon glyphicon-plus-sign"> Add</font></a></button>
+		
+	</ul>
+	{% endif %}
+</div>
+
+<div class="">
+	<br>{% for i in processor %}
+	<div><br>
+		<table>
+			<tr>
+				<th>processor_name</th>
+    			<th>about</th>
+    			<th>Speciality</th>
+    			<th>cores</th>
+    			<th>threads</th>
+    			<th>cache</th>
+			</tr>
+			<tr>
+    			<td><p>{{i.processor_name}}</p></td>
+    			<td><p>{{i.about}}</p></td>
+    			<td><p>{{i.Speciality}}</p></td>
+    			<td><p>{{i.cores}}</p></td>
+    			<td><p>{{i.threads}}</p></td>
+    			<td><p>{{i.cache}}</p></td>
+ 			</tr>
+			</table>
+	</div><br>
+	{% if 'username' in session %}
+	<button class="w3-button w3-black w3-round-xxlarge"><a href="{{ url_for('editProcessorList', company_id=company.id, b_id=i.id) }}" class="glyphicon glyphicon-edit"> edit <span ></a></button>
+	<button class="w3-button w3-black w3-round-xxlarge"><a href="{{ url_for('deleteProcessorList', processor_id=company.id, list_id=i.id) }}" class="glyphicon glyphicon-trash"> delete  <span ></span></a></button>
+	{% endif %}
+	{% endfor %}
+
+
+
+</div>
+</form>
+</body>
+</html>

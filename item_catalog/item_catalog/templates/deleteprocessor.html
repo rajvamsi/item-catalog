@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<form action="{{url_for('deleteProcessorList',processor_id=lists.processor_id,list_id=lists.id)}}"
+method="POST">
+
+		<button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Delete  <span class="glyphicon glyphicon-trash"></span></button>
+		<button class="w3-btn w3-white w3-border w3-border-red w3-round-large"><a href="{{url_for('showProcessors',company_id=lists.processor_id)}}">Cancel</a></button>
+
+	</form>
+</body>
+</html>

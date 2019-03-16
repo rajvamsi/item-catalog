@@ -1,0 +1,10 @@
+client id
+
+326787083880-9kaon2ap7gouod9ijiahg2sjbjtsima2.apps.googleusercontent.com
+
+
+client secret
+
+
+9d0iOkS14YhqEveLVbfCE_C7
+

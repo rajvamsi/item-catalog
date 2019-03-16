@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='company.css')}}">
+<style>
+body {
+  font-family: 'Lato', sans-serif;
+  background-color:rgb(195, 189, 249);
+  
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+.logo{
+	text-align: center;
+}
+.d{
+	padding: 3% 15% 7% 2%;
+}
+</style>
+</head>
+<body>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+  	{% if 'username' not in session %}
+  	<a href="{{url_for('showLogin')}}">Login    <span class="glyphicon glyphicon-log-in"></span></a>
+  	{% else %}
+  	<a href="{{url_for('logout')}}">logout   <span class="glyphicon glyphicon-log-out"></span></a>
+  	{% endif %}
+    <a href="{{ url_for('newCompany')}}" >Add Company    <span class="glyphicon glyphicon-plus"></span></a>
+  </div>
+</div>
+<div class="d">
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+</div>
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
+
+<form action="#" method="POST">
+	<div class="logo">
+		<img src="{{url_for('static', filename='prologo.jpg')}}"  style="height: 180px; margin-top: -16%";>
+	</div>
+
+
+
+<div class="w3-container w3-padding-64 w3-center" id="team">
+<h2>CHOOSE ANY COMPANY</h2>
+<p>just visit</p>
+
+<div class="w3-row"><br>
+
+{% for c in company %}
+<div class="w3-quarter">
+  <img src="https://cdn.instructables.com/FG6/NSYJ/IM5WPGD9/FG6NSYJIM5WPGD9.LARGE.jpg" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+  <a href="{{url_for('showProcessors',company_id=c.id)}}"><h4><font color="black">{{c.name}}</font></h4></a>
+{% if 'username' in session%}
+<button class="w3-button w3-black w3-round-xxlarge "><font color="white"><a href="{{url_for('editCompany',company_id=c.id)}}" class="glyphicon glyphicon-edit"> edit</a></font></button>
+
+<button class="w3-button w3-black w3-round-xxlarge"><font color="white" ><a href="{{url_for('deleteCompany',company_id=c.id)}}" class="glyphicon glyphicon-trash"> delete</a></font></button>
+{% endif %}
+</div>
+{% endfor %}
+
+
+</div>
+</div>
+</div>
+</form>
+</body>
+</html>

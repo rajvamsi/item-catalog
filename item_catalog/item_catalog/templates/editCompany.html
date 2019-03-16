@@ -1,0 +1,20 @@
+<html>
+<head>
+	
+</head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+	<form action="{{ url_for('editCompany', company_id=company.id)}}" method="POST">
+	<label>Company Name</label>
+	<input type="text" name="name" placeholder="{{company.name}}" required>
+	<button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Edit</button>
+	<button class="w3-btn w3-white w3-border w3-border-red w3-round-large"><a href="{{ url_for('showCompany')}}">Cancel</a></button>
+	
+</form>
+</body>
+</html>
