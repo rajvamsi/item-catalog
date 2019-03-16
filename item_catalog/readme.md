@@ -1,8 +1,8 @@
-#Item_catalog
+# Item_catalog
 
 This is a Udacity project, A web application which uses FLASK framework that access SQL database having categories of items and OAUTH2 for authentication of CRUD operations on this application.
 
-##Requirements and Installations
+## Requirements and Installations
 
 * [Python](https://www.python.org/)
 * [Vagrant](https://www.vagrantup.com/)
@@ -10,7 +10,7 @@ This is a Udacity project, A web application which uses FLASK framework that acc
 * [DB Browser for SQLite](https://sqlitebrowser.org/)
 * [Pip](https://www.w3schools.com/python/python_pip.asp)
 
-##Skills
+## Skills
 
 1. [HTML](https://www.w3schools.com/html/)
 2. [CSS](https://www.w3schools.com/css/)
@@ -21,7 +21,7 @@ This is a Udacity project, A web application which uses FLASK framework that acc
 7. [SQLALCHEMY](https://www.sqlalchemy.org/)
 8. [PYTHON](https://www.w3schools.com/python/)
 
-##Run
+## Run
 
 * Launch Vagrant VM using 
     $ vagrant up
